@@ -1,0 +1,43 @@
+﻿<Window x:Class="Valet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Valet"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Pick Up Please!" TextAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1" Background="BlanchedAlmond" FontSize="42" FontWeight="Bold" Margin="10" Width="740" />
+        <TextBlock Grid.Column="1" Grid.Row="2" Margin="50" Text="Do you have trash today?" FontSize="32" HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center">
+            <Button x:Name="yesButton" Content="Yes" Height="25" Width="85" Background="CornflowerBlue" Foreground="White" Margin="10"/>
+            <Button x:Name="NoButton" Content="No" Height="25" Width="85" Background="CornflowerBlue" Foreground="White" Margin="10"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="4" Margin="10">
+            <TextBlock Text="Messages" HorizontalAlignment="Center" FontSize="24"/>
+            <RichTextBox IsReadOnly="True" MinHeight="100" />
+        </StackPanel>
+
+    </Grid>
+</Window>
