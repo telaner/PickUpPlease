@@ -98,20 +98,24 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center">
             <StackPanel Orientation="Vertical" Margin="10">
-                <TextBlock Text="Select Resident" Margin="10"/>
-                <ComboBox/>
+                <TextBlock Text="Select Building" Margin="10"/>
+                <ComboBox x:Name="buildingComboBox"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="10">
+                <TextBlock Text="Select Resident Number" Margin="10"/>
+                <ComboBox x:Name="numberComboBox"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="10">
                 <TextBlock Text="Trash picked up?" Margin="10"/>
                 <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center">
-                    <Button x:Name="yesButton" Content="Yes" Width="30" Background="CornflowerBlue" Foreground="White" />
-                    <Button x:Name="NoButton" Content="No" Width="30" Background="CornflowerBlue" Foreground="White" Margin="10,0,0,0" />
+                    <Button x:Name="yesButton" Content="Yes" Width="30" Background="CornflowerBlue" IsEnabled="False" />
+                    <Button x:Name="NoButton" Content="No" Width="30" Background="CornflowerBlue" Margin="10,0,0,0" IsEnabled="False" />
                 </StackPanel>
 
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="10">
-                <TextBlock Text="If no please select why" Margin="10"/>
-                <ComboBox IsEnabled ="False"/>
+                <TextBlock Text="If no, please select why" Margin="10"/>
+                <ComboBox x:Name="noPickUpBox" IsEnabled ="False"/>
             </StackPanel>
 
         </StackPanel>
