@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Valet"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -93,32 +93,34 @@
                 </StackPanel>
             </StackPanel>
         </StackPanel>
-
-        <TextBlock Grid.Column="1" Grid.Row="4" Text="Send a Message to a Resident" Margin="10" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16"/>
-
+        <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+            <TextBlock Text="Send a Message to Resident: " HorizontalAlignment="Center"  FontSize="16"/>
+            <TextBlock x:Name="residentBox" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+        </StackPanel>
+        
         <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center">
             <StackPanel Orientation="Vertical" Margin="10">
                 <TextBlock Text="Select Building" Margin="10"/>
-                <ComboBox x:Name="buildingComboBox"/>
+                <ComboBox x:Name="buildingComboBox" ItemsSource="{Binding Building}" SelectionChanged="buildingComboBox_SelectionChanged" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="10">
                 <TextBlock Text="Select Resident Number" Margin="10"/>
-                <ComboBox x:Name="numberComboBox"/>
+                <ComboBox x:Name="numberComboBox" ItemsSource="{Binding Number}" SelectionChanged="numberComboBox_SelectionChanged"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="10">
                 <TextBlock Text="Trash picked up?" Margin="10"/>
                 <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center">
-                    <Button x:Name="yesButton" Content="Yes" Width="30" Background="CornflowerBlue" IsEnabled="False" />
-                    <Button x:Name="NoButton" Content="No" Width="30" Background="CornflowerBlue" Margin="10,0,0,0" IsEnabled="False" />
+                    <Button x:Name="yesButton" Content="Yes" Width="30" Background="CornflowerBlue" IsEnabled="False" Click="yesButton_Click" />
+                    <Button x:Name="NoButton" Content="No" Width="30" Background="CornflowerBlue" Margin="10,0,0,0" IsEnabled="False" Click="NoButton_Click"/>
                 </StackPanel>
 
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="10">
                 <TextBlock Text="If no, please select why" Margin="10"/>
-                <ComboBox x:Name="noPickUpBox" IsEnabled ="False"/>
+                <ComboBox x:Name="noPickUpBox" IsEnabled ="False" ItemsSource="{Binding Message}" SelectionChanged="noPickUpBox_SelectionChanged"/>
             </StackPanel>
-
         </StackPanel>
+        <Button x:Name="submitButton" Grid.Column="1" Grid.Row="6" Content="Submit" Background="CornflowerBlue" IsEnabled="False" FontSize="18" Margin="10" Click="submitButton_Click"/>
         
       
 

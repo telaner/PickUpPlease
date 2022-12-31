@@ -25,7 +25,7 @@ namespace Resident
         public Window1()
         {
             InitializeComponent();
-            buldingCombobox.ItemsSource = Builiding;
+            buildingCombobox.ItemsSource = Builiding;
             numberCombobox.ItemsSource = Number;
         }
 
@@ -33,8 +33,8 @@ namespace Resident
 
         private void buldingCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string building = buldingCombobox.SelectedItem as string;
-            if (buldingCombobox.SelectedItem != null) 
+            string building = buildingCombobox.SelectedItem as string;
+            if (buildingCombobox.SelectedItem != null) 
             {
                 buildingText.Text = building;
             } 
@@ -44,19 +44,19 @@ namespace Resident
         private void numberCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string number = numberCombobox.SelectedItem as string;
-            if (buldingCombobox.SelectedItem != null)
+            if (buildingCombobox.SelectedItem != null)
             {
                 numberText.Text = number;
             }
             resident = buildingText.Text + number;
             
-            if (buldingCombobox.SelectedItem != null || buldingCombobox.SelectedItem != null)
+            if (buildingCombobox.SelectedItem != null || numberCombobox.SelectedItem != null)
             {
                     signInButton.IsEnabled = true;
             }
 
-
         }
+        
         
 
         
