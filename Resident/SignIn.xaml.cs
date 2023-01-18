@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DataAccess;
+using DataAccess.Data;
 
 namespace Resident
 {
@@ -19,13 +23,28 @@ namespace Resident
     /// </summary>
     public partial class Window1 : Window
     {
-        public List<string> Builiding = new List<string> { "A", "B", "C", "D" };
-        public List<string> Number = new List<string> {"1", "2", "3", "4", "5", "6"};
+        
+        public ResidentData _residentData = new ResidentData();
+        public ObservableCollection<string> Building { get; private set; }
+        public ObservableCollection<string> Number { get; private set; }
         public string resident;
+        public string building;
+        public string number;
         public Window1()
         {
             InitializeComponent();
-            buildingCombobox.ItemsSource = Builiding;
+
+            Binding();
+        }
+
+        private void Binding() 
+        {
+            var building = _residentData.GetBuilding();
+            Building = new ObservableCollection<string>(building);
+            buildingCombobox.ItemsSource=Building;
+
+            var number = _residentData.GetHouseNumber();
+            Number = new ObservableCollection<string>(number);
             numberCombobox.ItemsSource = Number;
         }
 
@@ -33,7 +52,7 @@ namespace Resident
 
         private void buldingCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string building = buildingCombobox.SelectedItem as string;
+            building = buildingCombobox.SelectedItem as string;
             if (buildingCombobox.SelectedItem != null) 
             {
                 buildingText.Text = building;
@@ -43,12 +62,12 @@ namespace Resident
 
         private void numberCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string number = numberCombobox.SelectedItem as string;
+            number = numberCombobox.SelectedItem as string;
             if (buildingCombobox.SelectedItem != null)
             {
                 numberText.Text = number;
             }
-            resident = buildingText.Text + number;
+            resident = building + number;
             
             if (buildingCombobox.SelectedItem != null || numberCombobox.SelectedItem != null)
             {
@@ -67,6 +86,8 @@ namespace Resident
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             mainWindow.residentBox.Text = resident;
+            mainWindow.building = building;
+            mainWindow.number = number;
             this.Close();
         }
 

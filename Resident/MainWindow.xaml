@@ -40,7 +40,7 @@
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="5" Margin="10">
             <TextBlock Text="Messages" HorizontalAlignment="Center" FontSize="24"/>
-            <RichTextBox IsReadOnly="True" MinHeight="100" />
+            <TextBox x:Name="MessageTextBox" IsReadOnly="True" MinHeight="100" />
         </StackPanel>
 
     </Grid>
