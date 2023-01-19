@@ -58,7 +58,37 @@ public class ValetData
             var result = connection.Query<int>("dbo.GetPendingOrders").ToList();
             return result;
         }
-    } 
+    }
+
+    public int GetMessageId(string message)
+    {
+        using (IDbConnection connection = new SqlConnection(Helper.CnnVal("PickUpPleaseDB")))
+        {
+            var result = connection.QuerySingleOrDefault <int>("dbo.GetMessageId @message", new {Message = message});
+            return result;
+        }
+    }
+
+    public void DeletePendingOrder(int pickupid)
+    {
+        using (IDbConnection connection = new SqlConnection(Helper.CnnVal("PickUpPleaseDB")))
+        {
+            connection.Execute("dbo.deletePendingOrder @PickUpId", new { PickUpId = pickupid });
+        }
+    }
+
+    public void SendMessageResident(int MesId, int ResId, string Mes) 
+    {
+        using (IDbConnection connection = new SqlConnection(Helper.CnnVal("PickUpPleaseDB")))
+        {
+            List<ResidentMessageModel> residentMessages = new List<ResidentMessageModel>();
+            residentMessages.Add(new ResidentMessageModel { MessageID = MesId,ResidentID = ResId, Message =Mes});
+            
+            connection.Execute("dbo.SendMessageResident @MessageID,@ResidentID,@Message", residentMessages );
+        }
+
+    }
+
 
 
 

@@ -85,9 +85,8 @@ namespace Resident
             
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-            mainWindow.residentBox.Text = resident;
-            mainWindow.building = building;
-            mainWindow.number = number;
+            mainWindow.buildingBox.Text = building;
+            mainWindow.numberBox.Text = number;
             this.Close();
         }
 

@@ -31,7 +31,9 @@
         <TextBlock Text="Pick Up Please!" TextAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1" Background="BlanchedAlmond" FontSize="42" FontWeight="Bold" Margin="10" Width="740" />
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2">
             <TextBlock Text="Resident: " FontSize="24"/>
-            <TextBlock x:Name="residentBox" FontSize="24" />
+            <TextBlock x:Name="buildingBox" FontSize="24" />
+            <TextBlock x:Name="numberBox" FontSize="24"/>
+            
         </StackPanel>
         <TextBlock Grid.Column="1" Grid.Row="3" Margin="10" Text="Do you have trash today?" FontSize="32" HorizontalAlignment="Center"/>
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center">
@@ -39,8 +41,9 @@
             <Button x:Name="NoButton" Content="No" Height="25" Width="85" Background="CornflowerBlue" Foreground="White" Margin="10" Click="NoButton_Click"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="5" Margin="10">
-            <TextBlock Text="Messages" HorizontalAlignment="Center" FontSize="24"/>
-            <TextBox x:Name="MessageTextBox" IsReadOnly="True" MinHeight="100" />
+            <Button x:Name ="viewMessageButton" Content=" View Messages " HorizontalAlignment="Center" FontSize="24" Click="viewMessageButton_Click"/>
+            <TextBox x:Name="MessageTextBox" />
+            <Button x:Name="clearMessageButton" Content=" Clear Messages " HorizontalAlignment="Center" Click="clearMessageButton_Click"/>
         </StackPanel>
 
     </Grid>

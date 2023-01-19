@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DataAccess;
 using DataAccess.Data;
+using DataAccess.Models;
 
 namespace Valet
 {
@@ -29,6 +30,7 @@ namespace Valet
         public ObservableCollection<string> Building { get;private set; }
         public ObservableCollection<string> Number { get; private set; }
         public ObservableCollection<string> Message { get; private set; }
+        public List<int> Orders { get; private set; }
         string resident;
         string message;
         string building;
@@ -41,6 +43,8 @@ namespace Valet
 
 
             Binding();
+
+            updateBinding();
 
         }
 
@@ -57,6 +61,207 @@ namespace Valet
             var message = _valetData.GetMessage();
             Message = new ObservableCollection<string>(message);
             noPickUpBox.ItemsSource= Message;
+        }
+        private void updateBinding() 
+        {
+            var orders = _valetData.GetOrders();
+            Orders = new List<int>(orders);
+            if (orders.Contains(1)) 
+            {
+                a1Box.Background = new SolidColorBrush(Colors.Green);
+            }
+
+            if (orders.Contains(2)) 
+            {
+                a2Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(3)) 
+            {
+                a3Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(4))
+            {
+                a4Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(5))
+            {
+                a5Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(6))
+            {
+                a6Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(7))
+            {
+                b1Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(8))
+            {
+                b2Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(9))
+            {
+                b3Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(10))
+            {
+                b4Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(11))
+            {
+                b5Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(12))
+            {
+                b6Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(13))
+            {
+                c1Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(14))
+            {
+                c2Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(15))
+            {
+                c3Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(16))
+            {
+                c4Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(17))
+            {
+                c5Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(18))
+            {
+                c6Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(19))
+            {
+                d1Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(20))
+            {
+                d2Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(21))
+            {
+                d3Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(22))
+            {
+                d4Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (orders.Contains(23))
+            {
+                d5Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (!orders.Contains(24))
+            {
+                d6Box.Background = new SolidColorBrush(Colors.Green);
+            }
+            if (!orders.Contains(1))
+            {
+                a1Box.Background = default;
+            }
+
+            if (!orders.Contains(2))
+            {
+                a2Box.Background = default;
+            }
+            if (!orders.Contains(3))
+            {
+                a3Box.Background = default;
+            }
+            if (!orders.Contains(4))
+            {
+                a4Box.Background = default;
+            }
+            if (!orders.Contains(5))
+            {
+                a5Box.Background = default;
+            }
+            if (!orders.Contains(6))
+            {
+                a6Box.Background = default;
+            }
+            if (orders.Contains(7))
+            {
+                b1Box.Background = default;
+            }
+            if (!orders.Contains(8))
+            {
+                b2Box.Background = default;
+            }
+            if (!orders.Contains(9))
+            {
+                b3Box.Background = default;
+            }
+            if (!orders.Contains(10))
+            {
+                b4Box.Background = default;
+            }
+            if (!orders.Contains(11))
+            {
+                b5Box.Background = default;
+            }
+            if (!orders.Contains(12))
+            {
+                b6Box.Background = default;
+            }
+            if (!orders.Contains(13))
+            {
+                c1Box.Background = default;
+            }
+            if (!orders.Contains(14))
+            {
+                c2Box.Background = default;
+            }
+            if (!orders.Contains(15))
+            {
+                c3Box.Background = default;
+            }
+            if (!orders.Contains(16))
+            {
+                c4Box.Background = default;
+            }
+            if (!orders.Contains(17))
+            {
+                c5Box.Background = default;
+            }
+            if (!orders.Contains(18))
+            {
+                c6Box.Background = default;
+            }
+            if (!orders.Contains(19))
+            {
+                d1Box.Background = default;
+            }
+            if (!orders.Contains(20))
+            {
+                d2Box.Background = default;
+            }
+            if (!orders.Contains(21))
+            {
+                d3Box.Background = default;
+            }
+            if (!orders.Contains(22))
+            {
+                d4Box.Background = default;
+            }
+            if (!orders.Contains(23))
+            {
+                d5Box.Background = default;
+            }
+            if (!orders.Contains(24))
+            {
+                d6Box.Background = default;
+            }
+
+
         }
 
 
@@ -112,12 +317,33 @@ namespace Valet
         {
             if (noPickUpBox == null) 
             {
+                int id = _valetData.GetId(_residentData.GetId(number, building));
+                var completed = new Completed { pickupID = id };
+                _valetData.CompletePickUp(completed);
+                _valetData.DeletePendingOrder(id);
+                updateBinding();
                
             }
             if (noPickUpBox != null)
             {
+                int resid = _residentData.GetId(number, building);
+                int id = _valetData.GetId(resid);
+                int mesid = _valetData.GetMessageId(message);
+                var incomplete = new Incomplete { pickupID = id, messageID = mesid };
+                _valetData.DeletePendingOrder(id);
+                _valetData.SendMessage(incomplete);
+                _valetData.SendMessageResident(mesid, resid, message);
+
+                updateBinding();
                
             }
+
+            submitButton.IsEnabled=false;
+            yesButton.IsEnabled=false;
+            NoButton.IsEnabled=false;
+            noPickUpBox.SelectedItem = default;
+            numberComboBox.SelectedItem = default;
+            buildingComboBox.SelectedItem = default;
             
         }
 

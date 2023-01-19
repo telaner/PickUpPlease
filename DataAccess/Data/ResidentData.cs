@@ -53,17 +53,12 @@ public class ResidentData
     }
         
 
-    public IEnumerable<string> GetMessage(int Id) 
+    public string GetMessage(int ResidentId) 
     {
         using (IDbConnection connection = new SqlConnection(Helper.CnnVal("PickUpPleaseDB"))) 
         {
-            var results = connection.Query<string>("dbo.ViewMessage @ResidentID", new { ResidentID = Id });
-            if (results == null)
-            {
-                results = new List<string>();
-                return results;
-            }
-            else
+            var results = connection.QuerySingleOrDefault<string>("dbo.ViewMessage @Id", new { Id = ResidentId });
+            
             return results;
         }
         
