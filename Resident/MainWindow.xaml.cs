@@ -49,7 +49,7 @@ namespace Resident
             
             if (message != null) 
             {
-                MessageTextBox.Text = "Your Trash was not picked up because it " + message;
+                MessageTextBox.Text = "Your Trash was not picked up because the " + message;
             }
 
             if (message == null) 
